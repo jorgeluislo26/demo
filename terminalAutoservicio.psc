@@ -24,7 +24,7 @@ Algoritmo terminalAutorservicio
 	heineken710=1100
 	heineken473=800
 	heineken330=700
-	imperialRojaIpaGoldenCrean=600//Mismo precio, mismo tamaño
+	imperialRojaIpaGoldenCrean=600//Mismo precio, mismo tamaño, misma marca
 	miller710=1050
 	miller473=850
 	miller330=650
@@ -32,9 +32,12 @@ Algoritmo terminalAutorservicio
 	stellaArtois330=550
 	schneider710=800
 	schneider473=550
-	//Gaseosas y aguas saborizadas por 500cm³
-	cocaColaSpritePepsi=400
-	agua7up=350
+	//Gaseosas y aguas saborizadas por 600cm³
+	cola=400
+	sprite=400
+	pepsi=400
+	agua=350
+	seven=350
 	placer=250
 	
 	sumatoria=0
@@ -136,7 +139,7 @@ Repetir
 	Escribir "Si deseas agregar otra magnífica hamburguesa presiona Enter o la opción deseada"
 	Escribir "0. Para ordenar otra hamburguesa"
 	Escribir "1. Para elegir bebida"
-	Escribir "2. Para salir"
+	Escribir "2. Para pagar y salir"
 	si menu<>0 y menu<>1 y menu<>2 Entonces
 		Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"	
 	FinSi
@@ -147,8 +150,7 @@ Hasta Que menu>=0 y menu<=2
 Hasta Que menu =1 o menu=2 
 Limpiar Pantalla
 si menu=2 Entonces
-	Escribir "Excelente elección. El total a pagar de su pedido es $",sumatoria
-	Escribir "Si deseas cancelar presiona dos veces Enter"
+	 Escribir "Gracias por tu compra"
 SiNo
 	Repetir
 		Escribir "Selecciona la bebida de tú preferencia"
@@ -173,7 +175,9 @@ SiNo
 			Escribir "14. Cerveza Stella Artois 330cm³ $",stellaArtois330
 			Escribir "15. Cerveza Schneider 710cm³ $",schneider710
 			Escribir "16. Cerveza Schneider 473cm³ $",schneider473
-			Leer cantBebida//verificar desde aca, agregar todas las bebidas por separado, lo mismo los precio y en las haburguesas hacer lo mismo 
+			Leer cantBebida
+			
+			
 			si cantBebida>=1 y seleccion<=15 Entonces
 				Escribir "Genial!!! ¿Cuántas cervezas quieres? (Máximo 10 por pedido)"
 				Leer cant
@@ -186,8 +190,35 @@ SiNo
 					6:   canti = "6 "
 					7:   canti = "7 "
 					8:   canti = "8 "	
-					9:   canti = "7 "
-					10:  canti = "8 "
+					9:   canti = "9 "
+					10:  canti = "10 "
+				FinSegun
+			sino 
+				Limpiar Pantalla
+				Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
+				Escribir ""
+			FinSi
+		SiNo
+			Escribir "1. Coca Cola por 600cm³ $",cola
+			Escribir "2. Sprite por 600cm³ $",sprite
+			Escribir "3. Pepsi por 600cm³ $",pepsi
+			Escribir "4. 7up por 600cm³ $",agua
+			Escribir "5. Agua sin gas por 600 cm³ $",seven
+			Escribir "5. Agua saborizada Placer por 600cm³ $",placer	
+			si cantBebida>=1 y seleccion<=5 Entonces
+				Escribir "Genial!!! ¿Cuántas cervezas quieres? (Máximo 10 por pedido)"
+				Leer cant
+				Segun cant hacer
+					1:   canti = "1 "
+					2:   canti = "2 "
+					3:   canti = "3 "
+					4:   canti = "4 "
+					5:   canti = "5 "
+					6:   canti = "6 "
+					7:   canti = "7 "
+					8:   canti = "8 "	
+					9:   canti = "9 "
+					10:  canti = "10 "
 				FinSegun
 			sino 
 				Limpiar Pantalla
@@ -198,5 +229,8 @@ SiNo
 		
 	Hasta Que bebida = 0
 FinSi
-Escribir "Excelente elección. El total a pagar de su pedido es $",sumatoria
+Escribir "Excelente elección."
+Escribir "Estas comprando ",sumatoriaCantidad, " artículos"
+Escribir "Tu pedido esta compuesto por ",sumatoriaArticulos
+Escribir "El total de tu pedido es $",sumatoria
 FinAlgoritmo
