@@ -3,7 +3,7 @@ Algoritmo terminalAutorservicio
 	Definir precioSimple,precioDoble,precioTriple,precio2,precio3,precio4Y5,precio6,precio7,precio8,precio9Y10 Como Real
 	Definir brahmaChopp,corona330,heineken710,heineken473,heineken330,imperialRojaIpaGoldenCrean,miller710,miller473 Como Real
 	Definir miller330,stellaArtois473,stellaArtois330,schneider710,schneider473,cocaColaSpritePepsi,agua7up,placer Como Real
-	Definir sumatoria,seleccion ,menu,bebida,cant Como Real
+	Definir sumatoria,seleccion,menu,bebida,cant Como Real
 	Definir sumatoriaArticulos,canti Como Caracter
 	//Lista de precios de BOSTON BURGER al 30 de agosto 2023
 	//Precio Hamburguesas
@@ -43,6 +43,7 @@ Algoritmo terminalAutorservicio
 	sumatoria=0
 	sumatoriaArticulos=caracter
 	canti=caracter
+	
 	sumatoriaCantidad=0
 	Escribir "                                              Bienvenidos a BOSTON BURGER"
 	Escribir ""
@@ -67,26 +68,32 @@ Algoritmo terminalAutorservicio
 	
 	Leer seleccion
 	
+	
+	
 	si seleccion>=1 y seleccion<=12 Entonces
-		Escribir "Genial!!! ¿Cuántas vas a llevar de estas hamburguesas? (Máximo 10 por pedido)"
-		Leer cant
-		Segun cant hacer
-			1:   canti = "1 "
-			2:   canti = "2 "
-			3:   canti = "3 "
-			4:   canti = "4 "
-			5:   canti = "5 "
-			6:   canti = "6 "
-			7:   canti = "7 "
-			8:   canti = "8 "	
-			9:   canti = "9 "
-			10:  canti = "10 "
-		FinSegun
-	sino 
-		Limpiar Pantalla
-		Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
-		Escribir ""
+		repetir	
+			Escribir "Genial!!! ¿Cuántas vas a llevar de estas hamburguesas? (Máximo 10 por pedido)"
+			
+			Leer cant
+			Segun cant hacer
+				1:   canti = "1 "
+				2:   canti = "2 "
+				3:   canti = "3 "
+				4:   canti = "4 "
+				5:   canti = "5 "
+				6:   canti = "6 "
+				7:   canti = "7 "
+				8:   canti = "8 "	
+				9:   canti = "9 "
+				10:  canti = "10 "
+				De Otro Modo:
+					Limpiar Pantalla
+					Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
+					Escribir ""
+			FinSegun
+		Hasta Que cant>=1 y cant<=10
 	FinSi
+	
 Hasta Que seleccion>=1 y seleccion<=12
 Limpiar Pantalla
 Segun seleccion Hacer
@@ -131,6 +138,7 @@ Segun seleccion Hacer
 		Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
 FinSegun
 Repetir
+	//Hasta quí es para la seleccion de hamburguesas y si el cliente desea terminar su pedido sin bebidas
 	Limpiar Pantalla	
 	Escribir "Estas comprando ",sumatoriaCantidad, " artículos"
 	Escribir "Tu pedido esta compuesto por ",sumatoriaArticulos
@@ -150,7 +158,8 @@ Hasta Que menu>=0 y menu<=2
 Hasta Que menu =1 o menu=2 
 Limpiar Pantalla
 si menu=2 Entonces
-	 Escribir "Gracias por tu compra"
+	Escribir "Gracias por tu compra"
+	//Desde acä es la bebida
 SiNo
 	Repetir
 		Escribir "Selecciona la bebida de tú preferencia"
@@ -159,78 +168,166 @@ SiNo
 		Escribir "2. Gaseosa, agua, aguas saborizadas"
 		Leer bebida
 		si bebida=1 Entonces
-			Escribir "1. Cerveza Brama Chopp $",brahmaChopp
-			Escribir "2. Cerveza Corona 330cm³ $",corona330
-			Escribir "3. Cerveza Heineken 710cm³ $",heineken710
-			Escribir "4. Cerveza Heineken 473cm³ $",heineken473
-			Escribir "5. Cerveza Heineken 330cm³ $",heineken330
-			Escribir "6. Cerveza Imperial Roja 770cm³ $",imperialRojaIpaGoldenCrean
-			Escribir "7. Cerveza Imperial Ipa 770cm³ $",imperialRojaIpaGoldenCrean
-			Escribir "8. Cerveza Imperial Golden 770cm³ $",imperialRojaIpaGoldenCrean
-			Escribir "9. Cerveza Imperial Crean Stout 770cm³ $",imperialRojaIpaGoldenCrean
-			Escribir "10. Cerveza Miller 710cm³ $",miller710
-			Escribir "11. Cerveza Miller 473cm³ $",miller473
-			Escribir "12. Cerveza Miller 330cm³ $",miller330
-			Escribir "13. Cerveza Stella Artois 473cm³ $",stellaArtois473
-			Escribir "14. Cerveza Stella Artois 330cm³ $",stellaArtois330
-			Escribir "15. Cerveza Schneider 710cm³ $",schneider710
-			Escribir "16. Cerveza Schneider 473cm³ $",schneider473
-			Leer cantBebida
+			Repetir
+				
+				
+				Escribir "1. Cerveza Brama Chopp $",brahmaChopp
+				Escribir "2. Cerveza Corona 330cm³ $",corona330
+				Escribir "3. Cerveza Heineken 710cm³ $",heineken710
+				Escribir "4. Cerveza Heineken 473cm³ $",heineken473
+				Escribir "5. Cerveza Heineken 330cm³ $",heineken330
+				Escribir "6. Cerveza Imperial Roja 770cm³ $",imperialRojaIpaGoldenCrean
+				Escribir "7. Cerveza Imperial Ipa 770cm³ $",imperialRojaIpaGoldenCrean
+				Escribir "8. Cerveza Imperial Golden 770cm³ $",imperialRojaIpaGoldenCrean
+				Escribir "9. Cerveza Imperial Crean Stout 770cm³ $",imperialRojaIpaGoldenCrean
+				Escribir "10. Cerveza Miller 710cm³ $",miller710
+				Escribir "11. Cerveza Miller 473cm³ $",miller473
+				Escribir "12. Cerveza Miller 330cm³ $",miller330
+				Escribir "13. Cerveza Stella Artois 473cm³ $",stellaArtois473
+				Escribir "14. Cerveza Stella Artois 330cm³ $",stellaArtois330
+				Escribir "15. Cerveza Schneider 710cm³ $",schneider710
+				Escribir "16. Cerveza Schneider 473cm³ $",schneider473
+				Leer bebida
+				
+				
+				si bebida>=1 y bebida<=16 Entonces
+					repetir	
+						Escribir "Genial!!! ¿Cuántas vas a llevar de estas hamburguesas? (Máximo 10 por pedido)"
+						
+						Leer cant
+						Segun cant hacer
+							1:   canti = "1 "
+							2:   canti = "2 "
+							3:   canti = "3 "
+							4:   canti = "4 "
+							5:   canti = "5 "
+							6:   canti = "6 "
+							7:   canti = "7 "
+							8:   canti = "8 "	
+							9:   canti = "9 "
+							10:  canti = "10 "
+							De Otro Modo:
+								Limpiar Pantalla
+								Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
+								Escribir ""
+						FinSegun
+					Hasta Que cant>=1 y cant<=10
+				FinSi
+			Hasta Que bebida>=1 y bebida<=16 o bebida=0
 			
 			
-			si cantBebida>=1 y seleccion<=15 Entonces
-				Escribir "Genial!!! ¿Cuántas cervezas quieres? (Máximo 10 por pedido)"
-				Leer cant
-				Segun cant hacer
-					1:   canti = "1 "
-					2:   canti = "2 "
-					3:   canti = "3 "
-					4:   canti = "4 "
-					5:   canti = "5 "
-					6:   canti = "6 "
-					7:   canti = "7 "
-					8:   canti = "8 "	
-					9:   canti = "9 "
-					10:  canti = "10 "
-				FinSegun
-			sino 
-				Limpiar Pantalla
-				Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
-				Escribir ""
-			FinSi
+			
+			Segun bebida Hacer
+				1:  sumatoria=sumatoria+brahmaChopp*cant
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Brama Chopp, "
+				2:  sumatoria=sumatoria+corona330*cant
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Corona 330cm³, "
+				3:  sumatoria=sumatoria+heineken710*cant
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Heineken 710cm³, "
+				4:  sumatoria=sumatoria+heineken473*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Heineken 473cm³, "
+				5:  sumatoria=sumatoria+heineken330*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Heineken 330cm³, "
+				6:  sumatoria=sumatoria+imperialRojaIpaGoldenCrean*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Imperial Roja 770cm³, "
+				7:	sumatoria=sumatoria+imperialRojaIpaGoldenCrean*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Imperial Ipa 770cm³, "
+				8:  sumatoria=sumatoria+imperialRojaIpaGoldenCrean*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Imperial Golden 770cm³, "
+				9:  sumatoria=sumatoria+imperialRojaIpaGoldenCrean*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Imperial Crean Stout 770cm³, "
+				10: sumatoria=sumatoria+miller710*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Miller 710cm³, "
+				11: sumatoria=sumatoria+miller473*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Miller 473cm³, "
+				12:	sumatoria=sumatoria+miller330*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Miller 330cm³, "
+				13:	sumatoria=sumatoria+stellaArtois473*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Stella Artois 473cm³, "
+				14:	sumatoria=sumatoria+stellaArtois330*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Stella Artois 330cm³, "
+				15:	sumatoria=sumatoria+schneider710*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Schneider 710cm³, "
+				16:	sumatoria=sumatoria+schneider473*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Cerveza Schneider 473cm³, "
+				De Otro Modo:
+					Limpiar Pantalla
+					Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
+			FinSegun
 		SiNo
-			Escribir "1. Coca Cola por 600cm³ $",cola
-			Escribir "2. Sprite por 600cm³ $",sprite
-			Escribir "3. Pepsi por 600cm³ $",pepsi
-			Escribir "4. 7up por 600cm³ $",agua
+			Escribir "1. Gaseosa Coca Cola por 600cm³ $",cola
+			Escribir "2. Gaseosa Sprite por 600cm³ $",sprite
+			Escribir "3. Gaseosa Pepsi por 600cm³ $",pepsi
+			Escribir "4. Gaseosa 7up por 600cm³ $",agua
 			Escribir "5. Agua sin gas por 600 cm³ $",seven
-			Escribir "5. Agua saborizada Placer por 600cm³ $",placer	
+			Escribir "6. Agua saborizada Placer por 600cm³ $",placer	
 			si cantBebida>=1 y seleccion<=5 Entonces
-				Escribir "Genial!!! ¿Cuántas cervezas quieres? (Máximo 10 por pedido)"
-				Leer cant
-				Segun cant hacer
-					1:   canti = "1 "
-					2:   canti = "2 "
-					3:   canti = "3 "
-					4:   canti = "4 "
-					5:   canti = "5 "
-					6:   canti = "6 "
-					7:   canti = "7 "
-					8:   canti = "8 "	
-					9:   canti = "9 "
-					10:  canti = "10 "
-				FinSegun
-			sino 
-				Limpiar Pantalla
-				Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
-				Escribir ""
+				repetir	
+					Escribir "Genial!!! ¿Cuántas vas a llevar de estas hamburguesas? (Máximo 10 por pedido)"
+					
+					Leer cant
+					Segun cant hacer
+						1:   canti = "1 "
+						2:   canti = "2 "
+						3:   canti = "3 "
+						4:   canti = "4 "
+						5:   canti = "5 "
+						6:   canti = "6 "
+						7:   canti = "7 "
+						8:   canti = "8 "	
+						9:   canti = "9 "
+						10:  canti = "10 "
+						De Otro Modo:
+							Limpiar Pantalla
+							Escribir "UPS!!! Parece que tu opción no es correcta. Vuelve a intentarlo!!!"
+							Escribir ""
+					FinSegun
+				Hasta Que cant>=1 y cant<=10
 			FinSi
+			Segun bebida Hacer
+				1:  sumatoria=sumatoria+cola*cant
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Gaseosa Coca Cola por 600cm³, "
+				2:  sumatoria=sumatoria+sprite*cant
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Gaseosa Sprite por 600cm³, "
+				3:  sumatoria=sumatoria+pepsi*cant
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Gaseosa Pepsi por 600cm³, "
+				4:  sumatoria=sumatoria+agua*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Gaseosa 7up por 600cm³, "
+				5:  sumatoria=sumatoria+seven*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Agua sin gas por 600 cm³, "
+				6:  sumatoria=sumatoria+placer*cant 
+					sumatoriaCantidad=sumatoriaCantidad+cant
+					sumatoriaArticulos=sumatoriaArticulos+canti+"Agua saborizada Placer por 600cm³, "
+			FinSegun
+			
 		FinSi
 		
 	Hasta Que bebida = 0
 FinSi
 Escribir "Excelente elección."
 Escribir "Estas comprando ",sumatoriaCantidad, " artículos"
-Escribir "Tu pedido esta compuesto por ",sumatoriaArticulos
+Escribir "Tu pedido esta compuesto por: ",sumatoriaArticulos
 Escribir "El total de tu pedido es $",sumatoria
 FinAlgoritmo
+
